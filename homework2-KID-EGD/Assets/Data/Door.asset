@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a02cde538ee9742accaa55a2f58c96, type: 3}
   m_Name: Door
   m_EditorClassIdentifier: 
-  dialogueName: 
+  dialogueName: Door
   dialogueContents:
   - The door is locked...
   - The key maybe inside this room

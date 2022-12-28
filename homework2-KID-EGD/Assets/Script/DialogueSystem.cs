@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace tristan
 {
@@ -11,6 +13,7 @@ namespace tristan
     public class DialogueSystem : MonoBehaviour
     {
         #region data system
+
         [SerializeField, Header("Dialogue interval"), Range(0, 0.5f)]
         private float dialogueIntervalTime = 0.1f;
         [SerializeField, Header("Opening dialogue")]
@@ -26,6 +29,10 @@ namespace tristan
         private GameObject goTriangle;
         #endregion
 
+
+        private PlayerInput playerInput;    //player input element
+        private UnityEvent onDialogueFinish;
+
         #region event
         private void Awake()
         {
@@ -35,10 +42,25 @@ namespace tristan
             goTriangle = GameObject.Find("NextButton");
             goTriangle.SetActive(false);
 
-            StartCoroutine(FadeGroup());
-            StartCoroutine(TypeEffect());
+            playerInput = GameObject.Find("PlayerCapsule").GetComponent<PlayerInput>();
+
+            StartDialogue(dialogueOpening);
         }
         #endregion
+
+        /// <summary>
+        /// start dialogue
+        /// </summary>
+        /// <param name="data">to execute data dialogue</param>
+        /// <param name="_onDialogueFinish">dialogue finish event, can be null</param>
+
+        public void StartDialogue(DialogueData data, UnityEvent _onDialogueFinish = null)
+        {
+            playerInput.enabled = false;       //close player input element
+            StartCoroutine(FadeGroup());
+            StartCoroutine(TypeEffect(data));
+            onDialogueFinish = _onDialogueFinish;
+        }
 
         /// <summary>
         /// fade in and fade out group objects
@@ -60,16 +82,16 @@ namespace tristan
             }
         }
 
-        private IEnumerator TypeEffect()
+        private IEnumerator TypeEffect(DialogueData data)
         {
-            textName.text = dialogueOpening.dialogueName;
+            textName.text = data.dialogueName;
 
-            for (int j = 0; j < dialogueOpening.dialogueContents.Length; j++)
+            for (int j = 0; j < data.dialogueContents.Length; j++)
             {
                 textContent.text = "";
                 goTriangle.SetActive(false);
 
-                string dialogue = dialogueOpening.dialogueContents[j];
+                string dialogue = data.dialogueContents[j];
 
                 for (int i = 0; i < dialogue.Length; i++)
                 {
@@ -88,6 +110,11 @@ namespace tristan
             }
 
             StartCoroutine(FadeGroup(false));
+
+            playerInput.enabled = true;         //open player input element
+
+            // ?. if onDialogueFinish don't have value do not execute
+            onDialogueFinish.Invoke();          //dialogue finish event.call();
         }
     }
 }
