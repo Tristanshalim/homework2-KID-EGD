@@ -19,6 +19,8 @@ namespace tristan
         private GameObject propActive;
         [SerializeField, Header("props after dialogue data")]
         private DialogueData dataDialogueActive;
+        [SerializeField, Header("event after the dialogue finish props")]
+        private UnityEvent onDialogueFinishAfterActive;
 
         private string nameTarget = "PlayerCapsule";
         private DialogueSystem dialogueSystem;
@@ -44,7 +46,7 @@ namespace tristan
                 }
                 else
                 {
-                    dialogueSystem.StartDialogue(dataDialogueActive);
+                    dialogueSystem.StartDialogue(dataDialogueActive, onDialogueFinishAfterActive);
                 }
             }
         }
