@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a02cde538ee9742accaa55a2f58c96, type: 3}
   m_Name: Opening Dialogue
   m_EditorClassIdentifier: 
-  dialogueName: TEST
+  dialogueName: Player
   dialogueContents:
   - Who am I? Where am I???
   - This place is very scary, I want to leave this place as soon as possible...
