@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-namespace tristan
+namespace louis
 {
     /// <summary>
     /// dialogue system

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace tristan
+namespace louis
 {
     /// <summary>
     /// dialogue data
     /// </summary>
-    [CreateAssetMenu(menuName = "tristan/Dialogue Data", fileName = "New Dialogue Data")]
+    [CreateAssetMenu(menuName = "louis/Dialogue Data", fileName = "New Dialogue Data")]
     
     public class DialogueData : ScriptableObject
     {

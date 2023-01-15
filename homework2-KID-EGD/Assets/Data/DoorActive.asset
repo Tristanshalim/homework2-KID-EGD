@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueName: Door
   dialogueContents:
-  - You already take the key, you can open the door!
+  - A HA! This must be the key to open the door

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace tristan
+namespace louis
 {
     /// <summary>
     /// detect wether the player enters and perform interactive behavior

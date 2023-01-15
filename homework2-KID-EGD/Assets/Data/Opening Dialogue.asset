@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueName: Player
   dialogueContents:
-  - Who am I? Where am I???
-  - This place is very scary, I want to leave this place as soon as possible...
+  - Where is this place??
+  - Seems like i need to get out of here ASAP!

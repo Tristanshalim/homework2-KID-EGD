@@ -15,4 +15,4 @@ MonoBehaviour:
   dialogueName: Door
   dialogueContents:
   - The door is locked...
-  - The key maybe inside this room
+  - The key must be somewhere inside this room
